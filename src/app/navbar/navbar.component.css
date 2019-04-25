@@ -1,0 +1,15 @@
+.navbar {
+    height: 76px;
+    background-image: linear-gradient(to right, #12233c, #3167ae);
+  }
+
+  .user-icon {
+    width: 35px;
+    height: 35px;
+    background-color: var(--white);
+  }
+  .bell {
+    width: 21px;
+    height: 20px;
+    color: var(--white);
+  }
