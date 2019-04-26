@@ -11,10 +11,10 @@
     letter-spacing: normal;
     color: #393f44;
   }
-  .doc-gen-container {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
+ .grey-background {
+   background-color: #ededed;
+   padding: 32px;
+ }
   .overview {
     padding-left: 50px;
     font-family: Overpass;
@@ -32,9 +32,10 @@
     background-color: var(--white);
   }
   .search-container {
-      padding: 30px;
+    padding-left: 64px;
+    padding-right: 64px;
+    background-color: white;
   }
-
   .search-criteria {
     padding-left: 50px;
     padding-top: 30px;

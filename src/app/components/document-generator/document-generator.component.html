@@ -7,5 +7,10 @@
     <div class="col-lg-6"></div>
   </div>
 </div>
-<app-document-search></app-document-search>
-<app-document-list *ngIf=""></app-document-list>
+<div class="grey-background">
+  <div class="search-container">
+    <app-document-search></app-document-search>
+    <br><br>
+  </div>
+  <app-document-list *ngIf="!showDocuments"></app-document-list>
+</div>

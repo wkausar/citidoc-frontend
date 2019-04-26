@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./document-generator.component.css']
 })
 export class DocumentGeneratorComponent implements OnInit {
+  showDocuments: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    this.showDocuments = false;
   }
 
 }

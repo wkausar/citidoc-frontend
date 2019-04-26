@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { ToastNotificationModule } from 'patternfly-ng';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,7 +22,7 @@ import { DocumentListComponent } from './components/document-list/document-list.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ToastNotificationModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

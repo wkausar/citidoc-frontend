@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchCriteria } from '../../models//search-criteria';
-
+import { DocumentGeneratorComponent } from '../document-generator/document-generator.component';
 @Component({
   selector: 'app-document-search',
   templateUrl: './document-search.component.html',
@@ -8,6 +8,7 @@ import { SearchCriteria } from '../../models//search-criteria';
 })
 export class DocumentSearchComponent implements OnInit {
   searchCriteria: SearchCriteria;
+  documentGenerator: DocumentGeneratorComponent;
 
   constructor() { }
 
