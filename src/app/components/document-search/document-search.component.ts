@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchCriteria } from '../search-criteria';
+import { SearchCriteria } from '../../models//search-criteria';
 
 @Component({
   selector: 'app-document-search',
