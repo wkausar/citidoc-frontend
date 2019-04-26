@@ -1,3 +1,24 @@
-<p>
-  document-list works!
-</p>
+    <table class="table">
+      <thead>
+        <tr class="header-background">
+          <th>Document Name</th>
+          <th>Description</th>
+          <th>Client Instruction</th>
+          <th>Policy</th>
+          <th>Certification</th>
+          <th>Document Category</th>
+          <th>Template</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let document of documents">
+          <td>{{document.name}}</td>
+          <td>{{document.description}}</td>
+          <td>{{document.clientInstruction}}</td>
+          <td>{{document.policy}}</td>
+          <td>{{document.certification}}</td>
+          <td>{{document.category}}</td>
+          <td>{{document.template}}</td>
+        </tr>
+      </tbody>
+    </table>

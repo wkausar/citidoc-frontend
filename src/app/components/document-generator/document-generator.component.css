@@ -36,6 +36,15 @@
     padding-right: 64px;
     background-color: white;
   }
+
+  .document-list-container {
+    margin-top: 32px;
+    padding: 32px;
+    padding-left: 64px;
+    padding-right: 64px;
+    background-color: white;
+  }
+
   .search-criteria {
     padding-left: 50px;
     padding-top: 30px;

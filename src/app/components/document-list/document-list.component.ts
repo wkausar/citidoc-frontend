@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DocumentService } from '../../services/document.service';
+import { Document } from '../../models/document';
 
 @Component({
   selector: 'app-document-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentListComponent implements OnInit {
 
-  constructor() { }
+  documents: Document[];
+
+  constructor(private documentService: DocumentService) { }
+
+  getDocuments(): void {
+    this.documents = this.documentService.getDocuments();
+  }
 
   ngOnInit() {
+    this.getDocuments();
   }
 
 }
