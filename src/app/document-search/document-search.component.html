@@ -1,85 +1,105 @@
-<div class="search-container row">
+<div class="search-container">
+    <form>
     <p class="search-criteria">Checklist Search Criteria</p>
     <div class="col-md-4">
         <div> <br>
             <label>Product</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">Account Services</option>
+                <option #product value="Account Services">Account Services</option>
             </select>
+            </div>
         </div>
         <div>
             <br>
             <label>Audience</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">Client</option>
+                <option #audience value="Client">Client</option>
             </select>
+            </div>
         </div>
         <div>
             <br>
             <label>Region</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">Asia</option>
+                <option #region value="Asia">Asia</option>
             </select>
+            </div>
         </div>
     </div>
     <div class="col-md-4">
         <div>
             <br>
             <label>Sub Product</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">Account Opening</option>
+                <option #subProduct value="Account Opening">Account Opening</option>
             </select>
+            </div>
         </div>
         <div>
             <br>
             <label>Client Action</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">New Account</option>
+                <option #clientAction value="New Account">New Account</option>
             </select>
+            </div>
         </div>
         <div>
             <br>
             <label>Country</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">China</option>
+                <option #country value="China">China</option>
             </select>
+            </div>
         </div>
     </div>
     <div class="col-md-4">
         <div>
             <br>
             <label>Channel</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">eBAM Premier</option>
+                <option #channel value="eBAM Premier">eBAM Premier</option>
             </select>
+            </div>
         </div>
         <div>
             <br>
             <label>Client Action Sub Type</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">New Account</option>
+                <option #clientActionSubType value="New Account">New Account</option>
             </select>
+            </div>
         </div>
         <div>
             <br>
             <label>Residency</label>
+            <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option value="Account Services">Both</option>
+                <option #residency value="Both">Both</option>
             </select>
+            </div>
         </div>
     </div>
 
     <div class="button-container">
             <button type="button" class=" clear btn btn-primary">Clear</button>
-            <button type="button" class="search btn btn-default">Search</button>
+            <button type="button" class="search btn btn-default"(click)="search(product.value, audience.value, region.value, subProduct.value, clientAction.value, country.value, channel.value, clientActionSubType.value, residency.value)" >Search</button>
     </div>
+    </form>
 </div>

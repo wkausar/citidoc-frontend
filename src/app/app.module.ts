@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { DocumentGeneratorComponent } from './document-generator/document-generator.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { SearchFiltersComponent } from './search-filters/search-filters.component';
+import { DocumentSearchComponent } from './document-search/document-search.component';
+import { DocumentListComponent } from './document-list/document-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SearchFiltersComponent } from './search-filters/search-filters.componen
     LoginComponent,
     DocumentGeneratorComponent,
     NavbarComponent,
-    SearchFiltersComponent
+    DocumentSearchComponent,
+    DocumentListComponent
   ],
   imports: [
     BrowserModule,
