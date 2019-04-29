@@ -1,11 +1,20 @@
 export class SearchCriteria {
     product: string;
-    audience: string;
-    region: string;
     subProduct: string;
-    clientAction: string;
+    service: string;
+    subService: string;
+    region: string;
     country: string;
-    channel: string;
-    clientActionSubType: string;
+    audience: string;
+    subChannel: string;
     residency: string;
+    entityTypes: string;
+    leDomicile: string;
+    documentName: string;
+    documentDesc: string;
+    documentCertification: string;
+    documentPolicy: string;
+    instructions: string;
+    documentTemplate: string;
+    documentGroup: string;
   }
