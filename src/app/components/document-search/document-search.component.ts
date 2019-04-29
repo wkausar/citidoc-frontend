@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchCriteria } from '../../models//search-criteria';
-import { DocumentGeneratorComponent } from '../document-generator/document-generator.component';
 import { DocumentService } from '../../services/document.service';
-import { DocumentListComponent } from '../document-list/document-list.component';
 import { CriteriaList } from '../../models/criteriaList';
 import { Document } from '../../models/document';
 import { PamResponse } from 'src/app/models/pam-response';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-document-search',

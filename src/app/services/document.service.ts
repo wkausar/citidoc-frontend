@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Document } from '../models/document';
-import { DOCUMENTS } from '../mock-docs';
 import { CriteriaList } from '../models/criteriaList';
 import { Observable, of } from 'rxjs';
-import * as Rx from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { SearchCriteria } from '../models/search-criteria';
 import { PamResponse } from '../models/pam-response';
 
 const httpOptions = {
@@ -18,8 +14,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DocumentService {
-  // private dataSource = new Rx.BehaviorSubject(new CriteriaList());
-  // data = this.dataSource.asObservable();
   private citidocUrl = 'http://localhost:9090/citidoc';  // URL to web api
 
   getDocuments(criteria: CriteriaList): Observable <PamResponse> {
@@ -30,19 +24,6 @@ export class DocumentService {
       ),
       catchError(this.handleError<PamResponse>('getDocuments'))
     );
-
-  // getDocuments(payload: any): Observable <any> {
-  //   const simulationUrl = `${this.citidocUrl}/simulation`;
-  //   return this.http.post(simulationUrl, payload, httpOptions).pipe(
-  //     tap((criteriaListResult: any) => 
-  //     // console.log(criteriaListResult.invocationResult)
-  //     this.log(`result:${criteriaListResult}`)
-  //     ),
-  //     catchError(this.handleError<CriteriaList[]>('getDocuments'))
-  //   );
-
-
-    // return DOCUMENTS;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

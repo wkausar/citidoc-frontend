@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DocumentService } from '../../services/document.service';
 import { Document } from '../../models/document';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-document-list',
