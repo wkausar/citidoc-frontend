@@ -18,8 +18,6 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class DocumentService {
-  // private dataSource = new Rx.BehaviorSubject(new CriteriaList());
-  // data = this.dataSource.asObservable();
   private citidocUrl = 'http://localhost:9090/citidoc';  // URL to web api
 
   getDocuments(criteria: CriteriaList): Observable <PamResponse> {
@@ -30,19 +28,6 @@ export class DocumentService {
       ),
       catchError(this.handleError<PamResponse>('getDocuments'))
     );
-
-  // getDocuments(payload: any): Observable <any> {
-  //   const simulationUrl = `${this.citidocUrl}/simulation`;
-  //   return this.http.post(simulationUrl, payload, httpOptions).pipe(
-  //     tap((criteriaListResult: any) => 
-  //     // console.log(criteriaListResult.invocationResult)
-  //     this.log(`result:${criteriaListResult}`)
-  //     ),
-  //     catchError(this.handleError<CriteriaList[]>('getDocuments'))
-  //   );
-
-
-    // return DOCUMENTS;
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
