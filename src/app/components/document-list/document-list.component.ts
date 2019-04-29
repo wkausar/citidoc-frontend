@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DocumentService } from '../../services/document.service';
 import { Document } from '../../models/document';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-document-list',
@@ -9,8 +10,8 @@ import { Document } from '../../models/document';
 })
 export class DocumentListComponent implements OnInit {
 
-  documents: Document[];
-
+  //documents: Document[];
+  @Input() documents: Observable<any[]>;
   constructor(private documentService: DocumentService) { }
 
   getDocuments(): void { 
