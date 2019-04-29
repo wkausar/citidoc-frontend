@@ -4,6 +4,9 @@ import { DocumentGeneratorComponent } from '../document-generator/document-gener
 import { DocumentService } from '../../services/document.service';
 import { DocumentListComponent } from '../document-list/document-list.component';
 import { CriteriaList } from '../../models/criteriaList';
+import { Document } from '../../models/document';
+import { PamResponse } from 'src/app/models/pam-response';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-document-search',
@@ -12,9 +15,10 @@ import { CriteriaList } from '../../models/criteriaList';
 })
 export class DocumentSearchComponent implements OnInit {
   searchCriteria: SearchCriteria;
-  criteriaList: SearchCriteria[] = [];
+  criteriaArray: SearchCriteria[] = [];
+  documents: Document[] = [];
 
-  constructor(private documentService: DocumentService) {
+    constructor(private documentService: DocumentService) {
   }
 
   search(product: string, audience: string, region: string,
@@ -24,23 +28,42 @@ export class DocumentSearchComponent implements OnInit {
           const subChannel = channel;
           const entityTypes = '';
           const leDomicile = '';
-          const documentName= '';
+          const documentName = '';
           const documentDesc = '';
           const documentCertification = '';
-          const documentPolicy= '';
+          const documentPolicy = '';
           const instructions = '';
-          const documentTemplate= '';
+          const documentTemplate = '';
           const documentGroup = '';
+
           this.searchCriteria = { product, subProduct, service, subService, region,
         country, audience, subChannel, residency, entityTypes, leDomicile, documentName, documentDesc,
         documentCertification, documentPolicy, instructions, documentTemplate, documentGroup } as SearchCriteria;
-          this.criteriaList.push(this.searchCriteria);
-          const payload = {
-            criteriaList: this.criteriaList
+
+          this.criteriaArray.push(this.searchCriteria);
+          const criteriaList: CriteriaList = {
+            criteriaList: this.criteriaArray
           };
-          this.documentService.getDocuments(payload)
-          .subscribe(documents => { console.log(documents);
-          });
+
+          this.sendPamRequest(criteriaList);
+    }
+
+    private sendPamRequest(payload: CriteriaList): void {
+        this.documentService.getDocuments(payload)
+        .subscribe(pamResponse => {
+          console.log('PAM RESPONSE: ', pamResponse.resultList.criteriaList);
+
+          pamResponse.resultList.criteriaList.forEach( criteriaList => {
+          const returnedDocument = { name: criteriaList.documentName, description: criteriaList.documentDesc,
+            clientInstruction: criteriaList.instructions, policy: criteriaList.documentPolicy,
+            certification: criteriaList.documentCertification, category: criteriaList.leDomicile, 
+            template: criteriaList.documentTemplate
+               } as Document;
+          console.log(returnedDocument);
+          this.documents.push(returnedDocument);
+          }
+          );
+        });
     }
 
   ngOnInit() {

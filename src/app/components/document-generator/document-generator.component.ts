@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SearchCriteria } from '../../models//search-criteria';
+import { CriteriaList } from '../../models/criteriaList';
+import { Document } from '../../models/document';
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-document-generator',
@@ -7,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DocumentGeneratorComponent implements OnInit {
   showDocuments: boolean;
+  @Input() documents: Observable<any[]>;
 
   constructor() { }
 
