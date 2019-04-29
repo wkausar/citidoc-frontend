@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { SearchCriteria } from '../../models//search-criteria';
 import { DocumentGeneratorComponent } from '../document-generator/document-generator.component';
+import { DocumentService } from '../../services/document.service';
+import { DocumentListComponent } from '../document-list/document-list.component';
+import { CriteriaList } from '../../models/criteriaList';
+
 @Component({
   selector: 'app-document-search',
   templateUrl: './document-search.component.html',
@@ -8,14 +12,35 @@ import { DocumentGeneratorComponent } from '../document-generator/document-gener
 })
 export class DocumentSearchComponent implements OnInit {
   searchCriteria: SearchCriteria;
-  documentGenerator: DocumentGeneratorComponent;
+  criteriaList: SearchCriteria[] = [];
 
-  constructor() { }
+  constructor(private documentService: DocumentService) {
+  }
 
   search(product: string, audience: string, region: string,
          subProduct: string, clientAction: string, country: string, channel: string, clientActionSubType: string, residency: string): void {
-     this.searchCriteria = { product, audience, region,
-      subProduct, clientAction, country, channel, clientActionSubType, residency } as SearchCriteria;
+          const service = clientAction;
+          const subService = clientActionSubType;
+          const subChannel = channel;
+          const entityTypes = '';
+          const leDomicile = '';
+          const documentName= '';
+          const documentDesc = '';
+          const documentCertification = '';
+          const documentPolicy= '';
+          const instructions = '';
+          const documentTemplate= '';
+          const documentGroup = '';
+          this.searchCriteria = { product, subProduct, service, subService, region,
+        country, audience, subChannel, residency, entityTypes, leDomicile, documentName, documentDesc,
+        documentCertification, documentPolicy, instructions, documentTemplate, documentGroup } as SearchCriteria;
+          this.criteriaList.push(this.searchCriteria);
+          const payload = {
+            criteriaList: this.criteriaList
+          };
+          this.documentService.getDocuments(payload)
+          .subscribe(documents => { console.log(documents);
+          });
     }
 
   ngOnInit() {
