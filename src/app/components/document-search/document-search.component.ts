@@ -1,12 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { SearchCriteria } from '../../models//search-criteria';
-import { DocumentGeneratorComponent } from '../document-generator/document-generator.component';
 import { DocumentService } from '../../services/document.service';
-import { DocumentListComponent } from '../document-list/document-list.component';
 import { CriteriaList } from '../../models/criteriaList';
 import { Document } from '../../models/document';
-import { PamResponse } from 'src/app/models/pam-response';
-import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-document-search',
@@ -27,6 +23,19 @@ export class DocumentSearchComponent implements OnInit {
     this.valueChange.emit(this.documents = []);
   }
 
+  /**
+   * Takes the values from the form input and sends request to PAM /simulation endpoint and
+   * then maps the data to the document format and updates the array of documents.
+   * @param product
+   * @param audience
+   * @param region
+   * @param subProduct
+   * @param clientAction
+   * @param country
+   * @param channel
+   * @param clientActionSubType
+   * @param residency
+   */
   search(product: string, audience: string, region: string,
          subProduct: string, clientAction: string, country: string, channel: string, clientActionSubType: string, residency: string): void {
           const service = clientAction;
@@ -45,7 +54,7 @@ export class DocumentSearchComponent implements OnInit {
           this.searchCriteria = { product, subProduct, service, subService, region,
         country, audience, subChannel, residency, entityTypes, leDomicile, documentName, documentDesc,
         documentCertification, documentPolicy, instructions, documentTemplate, documentGroup } as SearchCriteria;
-          this.criteriaArray = [];  //reset array
+          this.criteriaArray = [];  // reset array
           this.criteriaArray.push(this.searchCriteria);
           const criteriaList: CriteriaList = {
             criteriaList: this.criteriaArray
@@ -53,7 +62,10 @@ export class DocumentSearchComponent implements OnInit {
 
           this.sendPamRequest(criteriaList);
     }
-
+    /**
+     * Sends the payload to the service to make REST call, and then maps the response fields that are needed to the documents
+     * @param payload
+     */
     private sendPamRequest(payload: CriteriaList): void {
         this.documentService.getDocuments(payload)
         .subscribe(pamResponse => {
@@ -65,7 +77,6 @@ export class DocumentSearchComponent implements OnInit {
             certification: criteriaList.documentCertification, category: criteriaList.leDomicile, 
             template: criteriaList.documentTemplate
                } as Document;
-          console.log(returnedDocument);
           this.documents.push(returnedDocument);
           this.valueChange.emit(this.documents);
           }

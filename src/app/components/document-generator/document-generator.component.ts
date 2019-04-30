@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Document } from '../../models/document';
 @Component({
   selector: 'app-document-generator',
@@ -10,7 +10,10 @@ export class DocumentGeneratorComponent implements OnInit {
   documents: Document[] = [];
 
   constructor() { }
-
+/**
+ * Updates the documents array based on the event emmited from doc-search component that is passed up to this component
+ * @param documents 
+ */
   updateDocuments(documents: Document[]) {
     if (documents.length > 0) {
       this.showDocuments = true;
@@ -20,12 +23,15 @@ export class DocumentGeneratorComponent implements OnInit {
     this.documents = documents;
   }
 
+  /**
+   * hides the doc list component when clear is pressed
+   * @param showDocuments 
+   */
   clear(showDocuments: boolean) {
     this.showDocuments = showDocuments;
   }
 
   ngOnInit() {
-
     this.showDocuments = false;
   }
 }
