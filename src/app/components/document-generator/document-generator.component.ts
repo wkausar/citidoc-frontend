@@ -16,6 +16,9 @@ export class DocumentGeneratorComponent implements OnInit {
   constructor() { }
 
   updateDocuments(documents: Document[]) {
+    if (documents.length > 0) {
+      this.showDocuments = true;
+    }
     this.documents = documents;
   }
   ngOnInit() {

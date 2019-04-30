@@ -12,7 +12,7 @@
     <app-document-search (valueChange)='updateDocuments($event)'></app-document-search>
     <br><br>
   </div>
-  <div class="document-list-container">
-  <app-document-list [documents]='documents' *ngIf="!showDocuments"></app-document-list>
+  <div class="document-list-container"  *ngIf="showDocuments">
+  <app-document-list [documents]='documents'></app-document-list>
   </div>
 </div>

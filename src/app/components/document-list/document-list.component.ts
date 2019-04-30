@@ -10,7 +10,6 @@ import { Observable } from "rxjs";
 })
 export class DocumentListComponent implements OnInit {
 
-  //documents: Document[];
   @Input() documents: Observable<any[]>;
   constructor(private documentService: DocumentService) { }
 
