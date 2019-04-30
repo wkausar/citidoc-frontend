@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { SearchCriteria } from '../../models//search-criteria';
 import { DocumentGeneratorComponent } from '../document-generator/document-generator.component';
 import { DocumentService } from '../../services/document.service';
@@ -17,8 +17,14 @@ export class DocumentSearchComponent implements OnInit {
   searchCriteria: SearchCriteria;
   criteriaArray: SearchCriteria[] = [];
   documents: Document[] = [];
+  @Output() valueChange = new EventEmitter();
 
     constructor(private documentService: DocumentService) {
+  }
+
+  clear() {
+    this.valueChange.emit(false);
+    this.valueChange.emit(this.documents = []);
   }
 
   search(product: string, audience: string, region: string,
@@ -35,7 +41,7 @@ export class DocumentSearchComponent implements OnInit {
           const instructions = '';
           const documentTemplate = '';
           const documentGroup = '';
-
+          this.valueChange.emit(this.documents = []);
           this.searchCriteria = { product, subProduct, service, subService, region,
         country, audience, subChannel, residency, entityTypes, leDomicile, documentName, documentDesc,
         documentCertification, documentPolicy, instructions, documentTemplate, documentGroup } as SearchCriteria;
@@ -61,6 +67,7 @@ export class DocumentSearchComponent implements OnInit {
                } as Document;
           console.log(returnedDocument);
           this.documents.push(returnedDocument);
+          this.valueChange.emit(this.documents);
           }
           );
         });

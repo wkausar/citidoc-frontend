@@ -28,6 +28,7 @@
   }
   .doc-info {
     height: 195px;
+    padding: 0 40px;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.06);
     background-color: var(--white);
   }
