@@ -14,13 +14,12 @@ export class DocumentListComponent implements OnInit {
   @Input() documents: Observable<any[]>;
   constructor(private documentService: DocumentService) { }
 
-  getDocuments(): void {
-    console.log(this.documents);
-   // this.documents = this.documentService.getDocuments();
-  }
+  // getDocuments(): void {
+  //   console.log( this.documents);
+  // }
 
   ngOnInit() {
-    this.getDocuments();
+    // this.getDocuments();
   }
 
 }
