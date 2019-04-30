@@ -21,12 +21,11 @@ export class DocumentGeneratorComponent implements OnInit {
   }
 
   clear(showDocuments: boolean) {
-    debugger;
     this.showDocuments = showDocuments;
   }
 
   ngOnInit() {
-    debugger;
+
     this.showDocuments = false;
   }
 }
