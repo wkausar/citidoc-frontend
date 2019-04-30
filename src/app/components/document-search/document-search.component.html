@@ -2,7 +2,7 @@
     <p class="search-criteria">Checklist Search Criteria</p>
     <div class="col-md-4">
         <div> <br>
-            <label>Product</label>
+            <label>Product Type</label>
             <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
@@ -27,6 +27,7 @@
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
                 <option #region value="Asia">Asia</option>
+                <option #region value="North America">North America</option>
             </select>
             </div>
         </div>
@@ -49,6 +50,7 @@
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
                 <option #clientAction value="New Account">New Account</option>
+                <option #clientAction value="Account Opening">Account Opening</option>
             </select>
             </div>
         </div>
@@ -59,6 +61,7 @@
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
                 <option #country value="China">China</option>
+                <option #country value="UNITED STATES OF AMERICA">UNITED STATES OF AMERICA</option>
             </select>
             </div>
         </div>
@@ -66,11 +69,12 @@
     <div class="col-md-4">
         <div>
             <br>
-            <label>Channel</label>
+            <label>Channel: Sub-Channel</label>
             <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
                 <option #channel value="eBAM Premier">eBAM Premier</option>
+                <option #channel value="Non eBAM">Non eBAM</option>
             </select>
             </div>
         </div>
@@ -80,7 +84,7 @@
             <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option #clientActionSubType value="New Account">New Account</option>
+                <option #clientActionSubType value="Account Opening - New Account">Account Opening - New Account</option>
             </select>
             </div>
         </div>
@@ -90,7 +94,7 @@
             <div class="form-group">
             <select class="dropdown form-control">
                 <option value="" selected="selected">Please Select</option>
-                <option #residency value="Both">Both</option>
+                <option #residency value="BOTH">BOTH</option>
             </select>
             </div>
         </div>
