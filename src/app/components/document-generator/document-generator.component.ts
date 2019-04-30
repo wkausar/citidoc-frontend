@@ -11,12 +11,14 @@ import { Observable } from "rxjs";
 })
 export class DocumentGeneratorComponent implements OnInit {
   showDocuments: boolean;
-  @Input() documents: Observable<any[]>;
+  documents: Document[] = [];
 
   constructor() { }
 
+  updateDocuments(documents) {
+    this.documents = documents;
+  }
   ngOnInit() {
     this.showDocuments = false;
   }
-
 }
