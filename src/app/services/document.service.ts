@@ -20,6 +20,11 @@ const httpOptions = {
 export class DocumentService {
   private citidocUrl = 'http://localhost:9090/citidoc';  // URL to web api
 
+  /**
+   * calls the PAM /simulation endpoint with the criteriaList payload that it expects (see swagger docs)
+   *  returns a pam response object that is transformed into Document objects in the component
+   * @param criteria 
+   */
   getDocuments(criteria: CriteriaList): Observable <PamResponse> {
     const simulationUrl = `${this.citidocUrl}/simulation`;
     return this.http.post(simulationUrl, criteria, httpOptions).pipe(
@@ -30,6 +35,11 @@ export class DocumentService {
     );
   }
 
+  /**
+   * 
+   * @param operation Handle errors
+   * @param result 
+   */
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
@@ -40,6 +50,10 @@ export class DocumentService {
     };
   }
 
+  /**
+   * 
+   * @param message basic log 
+   */
   private log(message: string) {
     console.log(`DocumentService: ${message}`);
   }
