@@ -45,7 +45,7 @@ export class DocumentSearchComponent implements OnInit {
           this.searchCriteria = { product, subProduct, service, subService, region,
         country, audience, subChannel, residency, entityTypes, leDomicile, documentName, documentDesc,
         documentCertification, documentPolicy, instructions, documentTemplate, documentGroup } as SearchCriteria;
-
+          this.criteriaArray = [];  //reset array
           this.criteriaArray.push(this.searchCriteria);
           const criteriaList: CriteriaList = {
             criteriaList: this.criteriaArray
