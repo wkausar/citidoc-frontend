@@ -12,7 +12,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let document of documents">
-          <td class="doc-rows" >{{document.name}}</td>
+          <td class="doc-rows" >{{document.name}} <p><a href='../../../assets/pdfs/td_1.pdf'>Link to PDF for: {{document.name}}</a></p></td>
           <td class="doc-rows" >{{document.description}}</td>
           <td class="doc-rows" >{{document.clientInstruction}}</td>
           <td class="doc-rows" >{{document.policy}}</td>
