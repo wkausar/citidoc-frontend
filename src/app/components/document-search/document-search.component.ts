@@ -23,6 +23,7 @@ export class DocumentSearchComponent implements OnInit {
   }
 
   clear() {
+    this.valueChange.emit(false);
     this.valueChange.emit(this.documents = []);
   }
 

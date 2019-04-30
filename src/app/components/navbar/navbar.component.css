@@ -1,5 +1,4 @@
 .navbar {
-    height: 76px;
     background-image: linear-gradient(to right, #12233c, #3167ae);
   }
 
@@ -12,4 +11,8 @@
     width: 21px;
     height: 20px;
     color: var(--white);
+  }
+  .citi-reverse {
+    width: 52px;
+    padding-top: 8px;
   }

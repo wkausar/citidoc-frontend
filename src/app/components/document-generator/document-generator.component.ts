@@ -1,16 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SearchCriteria } from '../../models//search-criteria';
-import { CriteriaList } from '../../models/criteriaList';
 import { Document } from '../../models/document';
-import { Observable } from "rxjs";
-
 @Component({
   selector: 'app-document-generator',
   templateUrl: './document-generator.component.html',
   styleUrls: ['./document-generator.component.css']
 })
 export class DocumentGeneratorComponent implements OnInit {
-  showDocuments: boolean;
+  showDocuments = false;
   documents: Document[] = [];
 
   constructor() { }
@@ -18,10 +14,19 @@ export class DocumentGeneratorComponent implements OnInit {
   updateDocuments(documents: Document[]) {
     if (documents.length > 0) {
       this.showDocuments = true;
+    } else {
+      this.showDocuments = false;
     }
     this.documents = documents;
   }
+
+  clear(showDocuments: boolean) {
+    debugger;
+    this.showDocuments = showDocuments;
+  }
+
   ngOnInit() {
+    debugger;
     this.showDocuments = false;
   }
 }
