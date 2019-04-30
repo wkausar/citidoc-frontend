@@ -15,7 +15,7 @@ export class DocumentGeneratorComponent implements OnInit {
 
   constructor() { }
 
-  updateDocuments(documents) {
+  updateDocuments(documents: Document[]) {
     this.documents = documents;
   }
   ngOnInit() {

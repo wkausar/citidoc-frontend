@@ -22,6 +22,10 @@ export class DocumentSearchComponent implements OnInit {
     constructor(private documentService: DocumentService) {
   }
 
+  clear() {
+    this.valueChange.emit(this.documents = []);
+  }
+
   search(product: string, audience: string, region: string,
          subProduct: string, clientAction: string, country: string, channel: string, clientActionSubType: string, residency: string): void {
           const service = clientAction;
@@ -36,7 +40,7 @@ export class DocumentSearchComponent implements OnInit {
           const instructions = '';
           const documentTemplate = '';
           const documentGroup = '';
-
+          this.valueChange.emit(this.documents = []);
           this.searchCriteria = { product, subProduct, service, subService, region,
         country, audience, subChannel, residency, entityTypes, leDomicile, documentName, documentDesc,
         documentCertification, documentPolicy, instructions, documentTemplate, documentGroup } as SearchCriteria;
